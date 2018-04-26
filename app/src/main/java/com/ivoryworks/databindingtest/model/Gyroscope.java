@@ -1,37 +1,37 @@
 package com.ivoryworks.databindingtest.model;
 
 public class Gyroscope {
-    private float mX;
-    private float mY;
-    private float mZ;
+    private float x;
+    private float y;
+    private float z;
 
     public Gyroscope(float x, float y, float z) {
-        mX = x;
-        mY = y;
-        mZ = z;
+        this.x = x;
+        this.y = y;
+        this.z = z;
     }
 
-    public float getX() {
-        return mX;
+    public String getX() {
+        return String.valueOf(this.x);
     }
 
-    private void setX(float x) {
-        mX = x;
+    public void setX(float x) {
+        this.x = x;
     }
 
-    public float getY() {
-        return mY;
+    public String getY() {
+        return String.valueOf(this.y);
     }
 
-    private void setY(float y) {
-        mY = y;
+    public void setY(float y) {
+        this.y = y;
     }
 
-    public float getZ() {
-        return mZ;
+    public String getZ() {
+        return String.valueOf(this.z);
     }
 
-    private void setZ(float z) {
-        mZ = z;
+    public void setZ(float z) {
+        this.z = z;
     }
 }

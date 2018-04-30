@@ -1,37 +1,29 @@
 package com.ivoryworks.databindingtest.model;
 
+import android.databinding.ObservableField;
+
 public class Gyroscope {
-    private float x;
-    private float y;
-    private float z;
+    // ObservableField型にする場合はpublicにする必要がある
+    // また、getter/setterは不要となる
+    public ObservableField<String> x = new ObservableField<>();
+    private ObservableField<String> y = new ObservableField<>();
+    private ObservableField<String> z = new ObservableField<>();
 
     public Gyroscope(float x, float y, float z) {
-        this.x = x;
-        this.y = y;
-        this.z = z;
+        this.x.set(String.valueOf(x));
+        this.y.set(String.valueOf(y));
+        this.z.set(String.valueOf(z));
     }
 
-    public String getX() {
-        return String.valueOf(this.x);
-    }
-
-    public void setX(float x) {
-        this.x = x;
-    }
-
-    public String getY() {
-        return String.valueOf(this.y);
+    public void changeX(float x) {
+        this.x.set(String.valueOf(x));
     }
 
     public void setY(float y) {
-        this.y = y;
-    }
-
-    public String getZ() {
-        return String.valueOf(this.z);
+        this.y.set(String.valueOf(y));
     }
 
     public void setZ(float z) {
-        this.z = z;
+        this.z.set(String.valueOf(z));
     }
 }

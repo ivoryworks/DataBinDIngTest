@@ -1,5 +1,6 @@
 package com.ivoryworks.databindingtest;
 
+import android.content.Context;
 import android.databinding.DataBindingUtil;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
@@ -11,13 +12,23 @@ import android.support.v7.app.AppCompatActivity;
 import com.ivoryworks.databindingtest.databinding.ActivityMainBinding;
 import com.ivoryworks.databindingtest.model.Gyroscope;
 
+import javax.inject.Inject;
+
+import dagger.android.AndroidInjection;
+
 public class MainActivity extends AppCompatActivity implements SensorEventListener {
 
-    private SensorManager mSensorManager;
+    @Inject
+    Context mContext;
+
     private Gyroscope mGyroscope;
+
+    private SensorManager mSensorManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        AndroidInjection.inject(this);
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 

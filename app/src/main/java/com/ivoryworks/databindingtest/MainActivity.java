@@ -22,8 +22,8 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     Context mContext;
     @Inject
     Gyroscope mGyroscope;
-
-    private SensorManager mSensorManager;
+    @Inject
+    SensorManager mSensorManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,8 +31,6 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        mSensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
 
         ActivityMainBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         binding.setGyro(mGyroscope);

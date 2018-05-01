@@ -6,8 +6,8 @@ public class Gyroscope {
     // ObservableField型にする場合はpublicにする必要がある
     // また、getter/setterは不要となる
     public ObservableField<String> x = new ObservableField<>();
-    private ObservableField<String> y = new ObservableField<>();
-    private ObservableField<String> z = new ObservableField<>();
+    public ObservableField<String> y = new ObservableField<>();
+    public ObservableField<String> z = new ObservableField<>();
 
     public Gyroscope(float x, float y, float z) {
         this.x.set(String.valueOf(x));
@@ -19,11 +19,11 @@ public class Gyroscope {
         this.x.set(String.valueOf(x));
     }
 
-    public void setY(float y) {
+    public void changeY(float y) {
         this.y.set(String.valueOf(y));
     }
 
-    public void setZ(float z) {
+    public void changeZ(float z) {
         this.z.set(String.valueOf(z));
     }
 }

@@ -5,9 +5,8 @@ import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
+import android.support.v7.app.AppCompatActivity;
 
 import com.ivoryworks.databindingtest.databinding.ActivityMainBinding;
 import com.ivoryworks.databindingtest.model.Gyroscope;
@@ -46,12 +45,10 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
 
     @Override
     public void onSensorChanged(SensorEvent event) {
-        Log.d("DEBUG999", "onSensorChanged()");
         if (event.sensor.getType() == Sensor.TYPE_GYROSCOPE) {
-            Log.d("DEBUG999", "X:"+event.values[0]);
-            Log.d("DEBUG999", "Y:"+event.values[1]);
-            Log.d("DEBUG999", "Z:"+event.values[2]);
             mGyroscope.changeX(event.values[0]);
+            mGyroscope.changeY(event.values[1]);
+            mGyroscope.changeZ(event.values[2]);
         }
     }
 

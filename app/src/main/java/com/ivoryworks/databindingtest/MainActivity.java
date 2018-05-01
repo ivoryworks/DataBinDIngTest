@@ -20,8 +20,8 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
 
     @Inject
     Context mContext;
-
-    private Gyroscope mGyroscope;
+    @Inject
+    Gyroscope mGyroscope;
 
     private SensorManager mSensorManager;
 
@@ -33,7 +33,6 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         setContentView(R.layout.activity_main);
 
         mSensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
-        mGyroscope = new Gyroscope(0, 0, 0);
 
         ActivityMainBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         binding.setGyro(mGyroscope);

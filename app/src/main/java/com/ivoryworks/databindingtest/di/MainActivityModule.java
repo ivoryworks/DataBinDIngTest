@@ -3,7 +3,7 @@ package com.ivoryworks.databindingtest.di;
 import android.app.Application;
 import android.hardware.SensorManager;
 
-import com.ivoryworks.databindingtest.model.Gyroscope;
+import com.ivoryworks.databindingtest.MainViewModel;
 
 import dagger.Module;
 import dagger.Provides;
@@ -12,8 +12,8 @@ import dagger.Provides;
 public class MainActivityModule {
 
     @Provides
-    Gyroscope provideGyroscope() {
-        return new Gyroscope(0, 0, 0);
+    MainViewModel provideMainViewModel() {
+        return new MainViewModel(0, 0, 0);
     }
 
     @Provides

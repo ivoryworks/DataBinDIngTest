@@ -1,6 +1,5 @@
 package com.ivoryworks.databindingtest;
 
-import android.content.Context;
 import android.databinding.DataBindingUtil;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
@@ -10,7 +9,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
 import com.ivoryworks.databindingtest.databinding.ActivityMainBinding;
-import com.ivoryworks.databindingtest.model.Gyroscope;
 
 import javax.inject.Inject;
 
@@ -19,9 +17,7 @@ import dagger.android.AndroidInjection;
 public class MainActivity extends AppCompatActivity implements SensorEventListener {
 
     @Inject
-    Context mContext;
-    @Inject
-    Gyroscope mGyroscope;
+    MainViewModel mMainViewModel;
     @Inject
     SensorManager mSensorManager;
 
@@ -33,7 +29,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         setContentView(R.layout.activity_main);
 
         ActivityMainBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
-        binding.setGyro(mGyroscope);
+        binding.setGyro(mMainViewModel);
     }
 
     @Override
@@ -54,9 +50,9 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     @Override
     public void onSensorChanged(SensorEvent event) {
         if (event.sensor.getType() == Sensor.TYPE_GYROSCOPE) {
-            mGyroscope.changeX(event.values[0]);
-            mGyroscope.changeY(event.values[1]);
-            mGyroscope.changeZ(event.values[2]);
+            mMainViewModel.changeX(event.values[0]);
+            mMainViewModel.changeY(event.values[1]);
+            mMainViewModel.changeZ(event.values[2]);
         }
     }
 
